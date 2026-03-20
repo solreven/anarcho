@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { default as altProductData } from "@/app/data/altProducts";
+import { altProductData } from "@/app/data/altProducts";
 
 export default function AltProductCards() {
   return (
