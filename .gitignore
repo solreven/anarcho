@@ -33,9 +33,30 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env*
 
+# strict safety additions
+.envrc
+*.local
+logs/
+*.log
+*.pid
+*.tmp
+tmp/
+temp/
+mongodb-data/
+mongo-data/
+data/db/
+*.bson
+*.wt
+*.archive
+*.dump
+*.bak
+
 # vercel
 .vercel
 
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# clerk configuration (can include secrets)
+/.clerk/
