@@ -4,6 +4,9 @@ import { auth } from "@clerk/nextjs/server";
 
 export async function GET() {
   const db = await connectToDatabase();
+  if (!db) {
+    return Response.json({ error: "Failed to connect to the database" });
+  }
   const items = await db.collection("testing-items").find({}).toArray();
   return Response.json(items);
 }
