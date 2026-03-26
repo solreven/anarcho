@@ -1,20 +1,16 @@
 import type { Metadata } from "next";
-import { Figtree, Open_Sans } from "next/font/google";
+import { Fraunces } from "next/font/google";
+import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
 
-const figTree = Figtree({
-  variable: "--font-figtree",
-  subsets: ["latin"],
-});
-
-const openSans = Open_Sans({
-  variable: "--font-open-sans",
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
   title: "The Anarchist",
-  description: "An anarchist newspapers written by the people, for the people.",
+  description: "An anarchist newspaper written by the people, for the people.",
 };
 
 export default function RootLayout({
@@ -25,9 +21,21 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${figTree.variable} ${openSans.variable} h-full antialiased`}
+      className={`${fraunces.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var t=localStorage.getItem("theme");if(t==="dark"||(!t&&matchMedia("(prefers-color-scheme:dark)").matches))document.documentElement.classList.add("dark")})()`,
+          }}
+        />
+      </head>
+      <body className="min-h-full flex flex-col bg-background text-foreground">
+        <ClerkProvider>
+          {children}
+        </ClerkProvider>
+      </body>
     </html>
   );
 }
