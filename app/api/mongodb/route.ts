@@ -12,15 +12,25 @@ export async function GET() {
 }
 
 export async function POST(request: NextRequest) {
-  const { userId } = await auth();
-  const data = await request.json();
-  const db = await connectToDatabase();
-  // This is an attempt at a workaround for Vercel while I'm in the early stages.
-  if (!db) {
-    return Response.json({ error: "Failed to connect to the database" });
+  try {
+    const { userId } = await auth();
+    const data = await request.json();
+    const db = await connectToDatabase();
+    if (!db) {
+      return Response.json({ error: "Failed to connect to the database" });
+    }
+    const result = await db
+      .collection("testing-items")
+      .insertOne({ ...data, ownerId: userId });
+    return Response.json({ insertedId: result.insertedId });
+  } catch (error) {
+    console.error("POST /api/mongodb error:", error);
+    return Response.json(
+      {
+        error: "Internal server error",
+        details: error instanceof Error ? error.message : String(error),
+      },
+      { status: 500 },
+    );
   }
-  const result = await db
-    .collection("testing-items")
-    .insertOne({ ...data, ownerId: userId });
-  return Response.json({ insertedId: result.insertedId });
 }
