@@ -15,6 +15,10 @@ export async function POST(request: NextRequest) {
   const { userId } = await auth();
   const data = await request.json();
   const db = await connectToDatabase();
+  // This is an attempt at a workaround for Vercel while I'm in the early stages.
+  if (!db) {
+    return Response.json({ error: "Failed to connect to the database" });
+  }
   const result = await db
     .collection("testing-items")
     .insertOne({ ...data, ownerId: userId });
