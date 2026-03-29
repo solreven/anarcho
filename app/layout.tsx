@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Fraunces } from "next/font/google";
-import { ClerkProvider } from "@clerk/nextjs";
+// Not supposed to work in production for now.
+// import { ClerkProvider } from "@clerk/nextjs";
+// <ClerkProvider>{children}</ClerkProvider>;
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -32,9 +34,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col bg-background text-foreground">
-        <ClerkProvider>
-          {children}
-        </ClerkProvider>
+        {children}
       </body>
     </html>
   );

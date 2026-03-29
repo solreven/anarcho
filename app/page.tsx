@@ -1,4 +1,5 @@
 import PageLayout from "./components/PageLayout";
+import Card from "./components/Card/Card";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
           fint om det bærer preg av det. 😎
         </p>
       </div>
+      <Card title="test" description="test" />
       <div>
         <h2 className="text-xl font-semibold">Velkommen</h2>
         <p>Dette er forsiden med Tailwind-stylet layout.</p>

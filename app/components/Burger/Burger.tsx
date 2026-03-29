@@ -8,7 +8,7 @@ export default function Burger() {
   const handleClick = () => {
     setActive((prev) => !prev);
   };
-
+  // Glemte at vi skal bruke Tailwind her... fiks all CSS-en slik at den er Tailwind da =)
   return (
     <div className={styles.burger}>
       <div className={styles.frame}>
