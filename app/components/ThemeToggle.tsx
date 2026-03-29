@@ -24,6 +24,7 @@ export function ThemeToggle() {
       className="text-primary hover:text-primary-light transition-colors"
       aria-label={dark ? "Switch to light mode" : "Switch to dark mode"}
     >
+      {/* Replace with an svg when I have time. */}
       {dark ? "☀️" : "🌙"}
     </button>
   );

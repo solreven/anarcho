@@ -14,11 +14,11 @@ type card_content = {
 export default function Card({ title, image, description }: card_content) {
   return (
     // Container for the card and its shadow.
-    <div className="flex flex-col align-right">
+    <div className="flex flex-col w-1/4 h-1/3">
       {/* The card shadow */}
-      <div className="flex flex-col align-left justify-end bg-[repeating-linear-gradient(45deg,_var(--color-border)_0_8px,_transparent_8px_16px)]">
+      <div className="pr-3 pt-3 flex flex-col align-left justify-end rounded-3xl bg-[repeating-linear-gradient(135deg,var(--color-primary,red)_-1px,var(--color-primary,red)_1px,transparent_1px,transparent_.32em)] w-full h-full">
         {/* The actual card */}
-        <div className="flex flex-col align-center justify-center">
+        <div className="flex flex-col align-center justify-center border-primary border-1 w-full h-full bg-blue-400">
           <h4>{title}</h4>
           <p>{description}</p>
           {image && <Image src={image.src} alt={image.alt} />}
