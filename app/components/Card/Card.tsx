@@ -14,7 +14,7 @@ type card_content = {
 export default function Card({ title, image, description }: card_content) {
   return (
     // Container for the card and its shadow.
-    <div className="flex flex-col w-1/4 h-1/3">
+    <div className="flex flex-col w-full h-full">
       {/* The card shadow */}
       <div className="pr-3 pt-3 flex flex-col align-left justify-end rounded-3xl bg-[repeating-linear-gradient(135deg,var(--color-primary,red)_-1px,var(--color-primary,red)_1px,transparent_1px,transparent_.32em)] w-full h-full">
         {/* The actual card */}

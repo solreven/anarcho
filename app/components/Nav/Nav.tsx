@@ -9,7 +9,14 @@ import Link from "next/link";
 
 export default function Nav() {
   return (
-    <nav className="flex w-full justify-evenly items-center bg-nav-bg text-nav-fg border-b border-nav-border transition-colors h-16 lg:py-2">
+    <nav
+      className="flex justify-evenly items-center bg-nav-bg text-nav-fg border-b border-nav-border transition-colors h-16"
+      style={{
+        width: "80vw",
+        margin: "1rem auto 0 auto",
+        borderRadius: "1rem",
+      }}
+    >
       <h4 className="font-bold">Brian Blitz</h4>
       <Link href="/">
         <h4>Hjem</h4>

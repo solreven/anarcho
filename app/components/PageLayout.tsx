@@ -7,8 +7,10 @@ interface PageLayoutProps {
 export default function PageLayout({ children }: PageLayoutProps) {
   return (
     <div className="h-screen flex flex-col items-center gap-1">
-      <Nav />
-      <main>{children}</main>
+      <div className="w-full" style={{ height: "10vh" }}>
+        <Nav />
+      </div>
+      <main style={{ height: "90vh", width: "80vh" }}>{children}</main>
     </div>
   );
 }
