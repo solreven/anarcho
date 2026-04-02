@@ -1,5 +1,6 @@
 import PageLayout from "./components/PageLayout";
-import Card from "./components/Card/Card";
+import Articles from "@/app/components/Articles/Articles";
+import articleCards from "@/app/data/articleCards";
 
 export default function Home() {
   return (
@@ -18,12 +19,13 @@ export default function Home() {
         className="grid grid-cols-3 grid-rows-2 gap-4 w-full"
         style={{ height: "50vh", marginTop: "1rem" }}
       >
+        {/* <Card title="test" description="test" />
         <Card title="test" description="test" />
         <Card title="test" description="test" />
         <Card title="test" description="test" />
         <Card title="test" description="test" />
-        <Card title="test" description="test" />
-        <Card title="test" description="test" />
+        <Card title="test" description="test" /> */}
+        <Articles cards={articleCards} />
       </div>
     </PageLayout>
   );

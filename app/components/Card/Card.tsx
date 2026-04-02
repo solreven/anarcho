@@ -1,17 +1,7 @@
 import Image from "next/image";
+import type { CardProps } from "@/app/Types/types";
 
-// This looks like it might actually be an interface and not a job for types.
-type image_type = {
-  src: string;
-  alt: string;
-};
-
-type card_content = {
-  title: string;
-  image?: image_type;
-  description: string;
-};
-export default function Card({ title, image, description }: card_content) {
+export default function Card({ title, image, description }: CardProps) {
   return (
     // Container for the card and its shadow.
     <div className="flex flex-col w-full h-full">

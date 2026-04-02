@@ -21,18 +21,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${fraunces.variable} h-full antialiased`}
-      suppressHydrationWarning
-    >
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){var t=localStorage.getItem("theme");if(t==="dark"||(!t&&matchMedia("(prefers-color-scheme:dark)").matches))document.documentElement.classList.add("dark")})()`,
-          }}
-        />
-      </head>
+    <html lang="en" className={`${fraunces.variable} h-full antialiased`}>
+      <head></head>
       <body className="min-h-full flex flex-col bg-background text-foreground">
         {children}
       </body>
